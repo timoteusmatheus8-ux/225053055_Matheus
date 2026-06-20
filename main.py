@@ -1,3 +1,5 @@
+import os
+
 from pathlib import Path
 from urllib.parse import quote, urlparse
 import time
@@ -705,4 +707,5 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.run(main, port=8554, assets_dir=str(ASSETS_DIR))
+    port = int(os.environ.get("PORT", 8554))
+    ft.run(main, port=port, assets_dir=str(ASSETS_DIR))
